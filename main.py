@@ -10,24 +10,26 @@ def menu(): # cria menu de navegação
     print('4 - Sair \n')
 
 while True: # inicia loop do programa
-    menu() # chama menu a cada laço
-    option = int(input(">>> ")) # chama input a cada laço
-    
-    # define ações para respostas no input
-    if option == 1: 
-        generate_answers() # gera dados aleatórios
-        webbrowser.open('candidatos.txt') # abre arquivo candidatos.txt
-    
-    if option == 2:
-        webbrowser.open('gabarito.txt') # abre arquivo gabarito.txt
+    try:
+        menu() # chama menu a cada laço
+        option = int(input(">>> ")) # chama input a cada laço
+        # define ações para respostas no input
+        if option == 1: 
+            generate_answers() # gera dados aleatórios
+            webbrowser.open('candidatos.txt') # abre arquivo candidatos.txt
         
-    if option == 3:
-        exam_validator() # faz verificação das notas
-        generate_classification() # gera arquivo de classificação
-        webbrowser.open('classificacao.txt') # abre arquivo de classificação
-        
-    if option == 4:
-        exit() # fecha programa
-        
+        elif option == 2:
+            webbrowser.open('gabarito.txt') # abre arquivo gabarito.txt
+            
+        elif option == 3:
+            exam_validator() # faz verificação das notas
+            generate_classification() # gera arquivo de classificação
+            webbrowser.open('classificacao.txt') # abre arquivo de classificação
+            
+        elif option == 4:
+            exit() # fecha programa
+            
+    except ValueError:     
+     print("Digite apenas números")
     
         
